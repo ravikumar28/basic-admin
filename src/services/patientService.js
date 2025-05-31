@@ -16,10 +16,14 @@ export const patientService = {
     if (filters.branchId) {
       params.branch_id = filters.branchId;
     }
-    
+
+    if (filters.status) {
+      params.status = filters.status;
+    }
+
     return api.get('/admin/appointments', { params });
   },
-  
+
   getPatientById: (patientId) => {
     return api.get(`/admin/appointments/${patientId}`);
   }

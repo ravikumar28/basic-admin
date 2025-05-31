@@ -7,6 +7,7 @@ const DateRangePicker = ({
   endDate,
   onStartDateChange,
   onEndDateChange,
+  showLabels = false,
   startDateLabel = 'Start Date',
   endDateLabel = 'End Date',
   className = '',
@@ -14,20 +15,20 @@ const DateRangePicker = ({
   return (
     <div className={`flex flex-col sm:flex-row gap-4 ${className}`}>
       <div className="form-group w-full sm:w-1/2">
-        <label className="form-label">{startDateLabel}</label>
+        {showLabels && <label className="form-label">{startDateLabel}</label>}
         <DatePicker
           selected={startDate}
           onChange={onStartDateChange}
           selectsStart
           startDate={startDate}
           endDate={endDate}
-          className="input"
+          className="input w-full"
           dateFormat="yyyy-MM-dd"
           placeholderText="Select start date"
         />
       </div>
       <div className="form-group w-full sm:w-1/2">
-        <label className="form-label">{endDateLabel}</label>
+        {showLabels && <label className="form-label">{endDateLabel}</label>}
         <DatePicker
           selected={endDate}
           onChange={onEndDateChange}
@@ -35,7 +36,7 @@ const DateRangePicker = ({
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
-          className="input"
+          className="input w-full"
           dateFormat="yyyy-MM-dd"
           placeholderText="Select end date"
         />

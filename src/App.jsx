@@ -8,6 +8,10 @@ import LoginPage from './pages/LoginPage';
 import PatientsPage from './pages/PatientsPage';
 import ReportPage from './pages/ReportPage';
 import NotFoundPage from './pages/NotFoundPage';
+import DashboardPage from './pages/DashboardPage';
+
+// Components
+import Layout from './components/layout/Layout';
 
 // Context providers
 import { AuthProvider } from './contexts/AuthContext';
@@ -31,14 +35,15 @@ function App() {
         <PatientProvider>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
                 <ProtectedRoute>
-                  <PatientsPage />
+                  <DashboardPage />
                 </ProtectedRoute>
-              } 
+              }
             />
+            
             <Route 
               path="/patients" 
               element={
