@@ -17,6 +17,9 @@ module.exports = {
           950: "#461704",
         },
       },
+      fontFamily: {
+        sans: ['General Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
     },
   },
   plugins: [],

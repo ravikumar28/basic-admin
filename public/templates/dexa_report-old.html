@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>Page 1</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style type="text/css">
+	
+	body {
+	  background: rgb(204,204,204); 
+      font-family: 'Blinker', sans-serif;
+      width: 794px;
+  		margin:0px;
+  		padding: 0px;
+
+	}
+	page {
+		position: relative;
+	  background: #fff;
+	  display: block;
+	  margin: 0 auto;
+	  margin-bottom: 200px;
+
+	}
+
+    page[size="A4"] {  
+	  width: 794px;
+	  height: 1120px; 
+	  padding: 0;
+	  position: relative;
+	}
+
+    #page1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://i.postimg.cc/B63ByBzB/firstpage-Background.png") no-repeat center center / cover;
+        transform: rotate(-180deg);
+    }
+        
+
+    .logo{
+        width: 359px;
+        height: 179px;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .page1_name{
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+        font-size: 2.5em;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        padding: 10px 20px;
+    
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+    .page1_name{
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+        font-size: 2.5em;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        padding: 10px 20px;
+    
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+    .page1_footer{
+        width: auto;
+        height: auto;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;    
+        color: #fff;
+    }
+
+    .page1_footer p{
+        padding: 0%;
+        font-size: 1.5em;
+    }
+    .page2_header{
+      padding: 10px 10px;
+    }
+
+    .header_name{
+        font-weight: 600;
+        font-size: 1.8em;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #F75819;
+        margin: 0;
+    }
+    .header_age{
+        font-weight: 400;
+        font-size: .9em;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #3A3A3A;
+        opacity: .5;
+        margin: 0;
+    }
+    .content{
+        position: relative;
+        padding: 2px 25px;
+    }
+
+    .page2_indicator{
+        width: 100%;
+        height: auto;
+    }
+
+    .progress-start-label {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #555; /* Dark grey for "SUMMARY" */
+        flex-shrink: 0; /* Prevent it from shrinking */
+        padding-right: 15px; /* Space before the line starts */
+        text-transform: uppercase;
+    }
+
+    .progress-line-wrapper {
+        flex-grow: 1; /* Allows the line to take up available space */
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 2px; /* Height of the line */
+        background-color: #F75819; /* Orange line color */
+    }
+
+    .progress-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #F75819; /* Orange dot color */
+        border-radius: 50%;
+        position: absolute;
+        top: 50%; /* Center vertically on the line */
+        transform: translateY(-50%);
+        z-index: 2; /* Ensures dots are above the line */
+    }
+
+    /* Specific dot for the start (black) */
+    .progress-dot.start {
+        width: 8px;
+        height: 8px;
+        background-color: black;
+        left: calc(10% - 3px);
+    }
+
+    /* Distribute dots evenly along the line */
+    .progress-dot.bone-health { left: calc(32% - 3px); } /* 20% of the line */
+    .progress-dot.fat-distribution { left: calc(53% - 3px); } /* 40% */
+    .progress-dot.asymmetry { left: calc(73% - 3px); } /* 60% */
+    .progress-dot.total-risk { left: calc(91% - 3px); } /* 80% */
+
+
+    .progress-labels-wrapper {
+        display: flex;
+        flex-grow: 1; /* Take up remaining space */
+        padding-top: 5px;
+    }
+
+    .progress-label {
+        font-size: 0.75em; /* Slightly smaller text for items */
+        color: #F75819; /* Lighter orange for item labels */
+        text-align: center;
+        flex-grow: 1; /* Distribute labels evenly */
+        padding: 0 5px; /* Little padding */
+        text-transform: uppercase;
+    }
+
+    .progress-label-start{
+
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #555; /* Dark grey for "SUMMARY" */
+        flex-shrink: 0; /* Prevent it from shrinking */
+        padding-right: 15px; /* Space before the line starts */
+        text-transform: uppercase;
+    }
+
+    .body-composition-section {
+        position: relative;
+    }
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end; /* Aligns "2ND APRIL 2025" to the bottom of its line */
+        margin-top: 20px;
+        margin-bottom: 5px;
+        color: #555; /* Dark grey for the main header text */
+        font-weight: 400;
+        font-size: 0.75em;
+        text-transform: uppercase;
+    }
+
+    .section-header .date {
+        color: #FF6600; /* Orange for the date */
+        font-size: 0.9em;
+        font-weight: normal;
+    }
+
+    .composition-boxes {
+        display: flex;
+        gap: 5px; /* Space between the boxes */
+        /* Operators are now inside boxes, so no standalone operators here */
+    }
+
+    .composition-box {
+        border: 1px solid #FF6600; /* Orange border as seen in the image */
+        border-radius: 5px;
+        padding: 15px 15px;
+        text-align: left;
+        display: flex;
+        flex-direction: column; /* Stack label and value vertically */
+        justify-content: center; /* Center content vertically in the box */
+        min-width: 196px; /* Minimum width for the boxes */
+        height: 80px; /* Fixed height for consistent box size */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+        position: relative; /* Crucial for positioning the operator absolutely inside */
+    }
+    .composition-box:last-child {
+        min-width: 110px; /* Minimum width for the boxes */
+        justify-content: center; /* Center content vertically in the box */
+    }
+
+
+    .box-label {
+        font-size: 1.3em;
+        color: #3A3A3A; /* Dark grey for labels */
+        font-weight: 600;
+        padding-top: 5px;
+        margin-bottom: 5px; /* Space between label and value */
+        text-transform: uppercase;
+    }
+
+    .box-value {
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 1.5em; /* Larger size for the values */
+        font-weight: 400;
+        padding-bottom: 5px;
+        color: #3A3A3A; /* Darker grey for values */
+    }
+
+    .box-operator-inside {
+        position: absolute;
+        right: 15px; /* Position from the right edge of the box */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Adjust for perfect vertical centering */
+        font-size: 1em; /* Size of the '+' and '=' signs */
+        color: #3A3A3A; /* Lighter grey for operators */
+        font-weight: bold;
+    }
+
+    /* Hide the operator for the last box */
+    .composition-box:last-child .box-operator-inside {
+        display: none;
+    }
+
+    .summary-section {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .summary-blocks {
+        display: flex;
+        gap: 5px; /* Space between the main blocks */
+        flex-grow: 1;
+        padding-right: 10px;
+
+        align-items: flex-start; /* Align blocks to the top */
+    }
+
+    .summary-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Push bottom text to bottom */
+        flex: 1; /* Allow blocks to grow and shrink evenly */
+        min-height: 120px; /* Ensure a minimum height for consistency */
+        box-sizing: border-box; /* Include padding in height/width */
+    }
+
+
+    /* Specific background colors for blocks */
+    .summary-block-green {border-radius: 8px;padding: 20px 10px;background-color: rgba(61, 160, 0, 0.5); /* Lighter green */ }
+    .summary-block-red { border-radius: 8px;padding: 20px 10px;background-color: rgba(253, 9, 9, 0.5); /* Lighter red */ }
+    .summary-block-yellow { border-radius: 8px;padding: 20px 10px;background-color: rgba(255, 184, 0, 0.5); /* Lighter yellow */ }
+
+    .block-label {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #3A3A3A; /* Dark grey for labels */
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        line-height: 1.2; /* Adjust line height for multi-line labels */
+    }
+
+    .block-value {
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 2.2em; /* Large size for values */
+        font-weight: 500;
+        color: #3A3A3A; /* Darker grey for values */
+        margin-bottom: auto; /* Pushes 'see more' to the bottom */
+        line-height: 1; /* Tighter line height for large numbers */
+    }
+
+    .block-link {
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 0.75em;
+        color: #888; /* Grey for the link text */
+        text-decoration: none; /* Remove underline */
+        margin-top: 5px; /* Space above the link */
+        margin-left: 10px;
+        align-self: flex-start; /* Align link to the left */
+    }
+
+    /* --- Legend Styles --- */
+    .summary-legend {
+        padding-top: 35px;
+        padding-left: 0px;
+        display: flex;
+        font-size: 1.05em;
+        font-family: "Instrument Sans", sans-serif;
+
+        flex-direction: column;
+        gap: 10px; /* Space between legend items */
+        flex-shrink: 0; /* Prevent legend from shrinking */
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .legend-color-box {
+        width: 18px;
+        height: 18px;
+        border-radius: 3px;
+        margin-right: 8px;
+    }
+
+    /* Specific colors for legend boxes */
+    .legend-color-box.green { background-color: rgba(61, 160, 0, 0.5); } /* Slightly darker green for legend */
+    .legend-color-box.yellow { background-color: rgba(255, 184, 0, 0.5);  } /* Slightly darker yellow for legend */
+    .legend-color-box.red { background-color: rgba(253, 9, 9, 0.5);  } /* Slightly darker red for legend */
+
+    .legend-text {
+        font-size: 0.85em;
+        color: #555;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .summary-section {
+            flex-direction: column;
+        }
+        .summary-blocks {
+            flex-direction: column;
+            width: 100%;
+        }
+        .summary-block {
+            width: 100%;
+            margin-bottom: 15px; /* Add space between stacked blocks */
+        }
+        .summary-legend {
+            margin-left: 0;
+            margin-top: 20px;
+            border-left: none;
+            padding-left: 0;
+        }
+    }
+
+    .mass-zone-section {
+        position: relative;
+        padding-top:25px;
+    }
+
+    .mass-zone-header {
+        font-size: 1em;
+        font-weight: 400;
+        color: #3A3A3A; /* Dark grey for the header text */
+        text-transform: uppercase;
+        margin-bottom: 5px; /* Space below the header */
+        text-align: left; /* Align header text to the left as per image */
+    }
+
+    .mass-zone-box {
+        border: 1px solid #FF6600; /* Orange border */
+        border-radius: 7px;
+        padding: 10px 10px; /* Generous padding inside the box */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally within the box */
+        justify-content: center; /* Center content vertically */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .zone-title {
+        font-size: 1.4em; /* Large size for the main title */
+        font-weight: bold;
+        color: #3A3A3A; /* Darker grey for the title */
+        text-transform: uppercase;
+        margin-bottom: 5px; /* Space between title and description */
+        line-height: 1.2;
+    }
+
+    .zone-description {
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 0.85em; /* Smaller size for the description */
+        font-style: italic;
+        color: #3A3A3A; /* Lighter grey for the description */
+        line-height: 1.2;
+    }
+
+    .you-are-section {
+        padding-top:25px;
+    }
+
+    .you-are-header {
+        font-size: 1em;
+        font-weight: 400;
+        color: #3A3A3A; /* Dark grey for the header text */
+        text-transform: uppercase;
+        margin-bottom: 5px; /* Space below the header */
+        text-align: left; /* Align header text to the left as per image */
+    }
+
+    .status-blocks-container {
+        display: flex;
+        gap: 5px; /* Space between the two status blocks */
+        flex-wrap: wrap; /* Allow blocks to wrap on smaller screens */
+    }
+
+    .status-block {
+        border-radius: 5px;
+        padding: 15px;
+        flex: 1; /* Allow blocks to grow and shrink evenly */
+        min-width: 300px; /* Minimum width before wrapping or excessive shrinking */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Align content to the top */
+    }
+
+    /* Specific background colors for blocks */
+    .status-block.red { background-color: rgba(253, 9, 9, 0.5); /* Light red */ }
+    .status-block.green { background-color: rgba(61, 160, 0, 0.5); /* Light green */ }
+
+    .block-title {
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+        color: #3A3A3A; /* Darker grey for titles */
+        text-transform: uppercase;
+        margin-bottom: 10px; /* Space below the title */
+        line-height: 1.2;
+    }
+
+    .block-detail-line {
+        font-size: 0.9em;
+        font-family: "Instrument Sans", sans-serif;
+        color: #3A3A3A; /* Dark grey for detail lines */
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .block-description {
+        font-family: "Instrument Sans", sans-serif;
+        font-size: 0.85em;
+        font-style: italic;
+        color: #3A3A3A; /* Lighter grey for descriptions */
+        line-height: 1.2;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .you-are-section {
+            width: 95%; /* Make section take more width on smaller screens */
+        }
+        .status-blocks-container {
+            flex-direction: column; /* Stack blocks vertically */
+        }
+        .status-block {
+            min-width: unset; /* Remove min-width when stacked */
+            width: 100%; /* Make blocks take full width when stacked */
+        }
+    }
+    .suggestions-section {
+        padding-top:25px;
+    }
+
+    .suggestions-header {
+            font-size: 0.9em;
+            font-weight: 400;
+            color: #3A3A3A; /* Dark grey for the header text */
+            text-transform: uppercase;
+            margin-bottom: 25px; /* Space below the header */
+            text-align: left;
+        }
+
+        .suggestions-content {
+            display: flex;
+            gap: 40px; /* Space between Nutrition and Training columns */
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+        }
+
+        .suggestion-column {
+            flex: 1; /* Allow columns to grow and shrink */
+            min-width: 300px; /* Minimum width for columns before wrapping */
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px; /* Space below column header */
+        }
+
+        .column-header .icon {
+            font-size: 1.8em; /* Size of the icons */
+            color: #3A3A3A; /* Dark color for icons */
+            margin-right: 10px; /* Space between icon and title */
+        }
+
+        .column-header .title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #3A3A3A; /* Dark grey for titles */
+            text-transform: uppercase;
+        }
+
+        .suggestion-list {
+            list-style: none; /* Remove default bullet points */
+            margin: 0;
+        }
+
+        .suggestion-list li {
+            font-family: "Instrument Sans", sans-serif;
+            font-size: 0.85em;
+            color: #3A3A3A; /* Dark grey for list items */
+            margin-bottom: 15px; /* Space between list items */
+            line-height: 1.3;
+            position: relative;
+            padding-left: 15px; /* Space for custom bullet */
+        }
+
+        .suggestion-list li::before {
+            content: "\2022"; /* Unicode for a bullet point */
+            color: #333; /* Color of the bullet */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Adjustments for the right column if it has less content */
+        .suggestion-column.training .suggestion-list li:last-child {
+            margin-bottom: 0; /* Remove bottom margin for the last item in a column */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .suggestions-content {
+                flex-direction: column; /* Stack columns vertically */
+                gap: 30px; /* Adjust gap when stacked */
+            }
+            .suggestion-column {
+                min-width: unset; /* Remove min-width when stacked */
+                width: 100%; /* Make columns take full width when stacked */
+            }
+        }
+
+    .progress-start-label2 {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #555; /* Dark grey for "SUMMARY" */
+        flex-shrink: 0; /* Prevent it from shrinking */
+        padding-right: 15px; /* Space before the line starts */
+        text-transform: uppercase;
+    }
+
+    .progress-line-wrapper2 {
+        flex-grow: 1; /* Allows the line to take up available space */
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 2px; /* Height of the line */
+        background-color: #F75819; /* Orange line color */
+    }
+
+    .progress-dot2 {
+        width: 8px;
+        height: 8px;
+        background-color: #F75819; /* Orange dot color */
+        border-radius: 50%;
+        position: absolute;
+        top: 50%; /* Center vertically on the line */
+        transform: translateY(-50%);
+        z-index: 2; /* Ensures dots are above the line */
+    }
+
+    /* Specific dot for the start (black) */
+    .progress-dot2.start {
+        width: 8px;
+        height: 8px;
+        left: calc(8% - 3px);
+    }
+
+    /* Distribute dots evenly along the line */
+    .progress-dot2.bone-health { left: calc(29% - 3px); background-color: black;} /* 20% of the line */
+    .progress-dot2.fat-distribution { left: calc(53% - 3px); } /* 40% */
+    .progress-dot2.asymmetry { left: calc(73% - 3px); } /* 60% */
+    .progress-dot2.total-risk { left: calc(91% - 3px); } /* 80% */
+
+
+    .progress-labels-wrapper2 {
+        display: flex;
+        flex-grow: 1; /* Take up remaining space */
+        padding-top: 5px;
+    }
+
+    .progress-label2 {
+        font-size: 0.75em; /* Slightly smaller text for items */
+        color: #F75819; /* Lighter orange for item labels */
+        text-align: center;
+        flex-grow: 1; /* Distribute labels evenly */
+        padding: 0 5px; /* Little padding */
+        text-transform: uppercase;
+    }
+
+    .progress-label-start2{
+
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #3A3A3A; /* Dark grey for "SUMMARY" */
+        flex-shrink: 0; /* Prevent it from shrinking */
+        padding-right: 15px; /* Space before the line starts */
+        text-transform: uppercase;
+    }
+
+    .bone-strength-section {
+            padding-top: 25px;
+        }
+
+        /* --- Header Section --- */
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(61, 160, 0, 0.5); /* Light green background for the title box */
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-bottom: 15px; /* Space below header */
+            width: fit-content; /* Shrink to fit content */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+        }
+
+        .header-title-container .icon {
+            font-size: 1.5em;
+            color: #3A3A3A;
+            margin-right: 10px;
+        }
+
+        .header-title-container .title-text {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #3A3A3A;
+            text-transform: uppercase;
+        }
+
+        /* --- Description Paragraph --- */
+        .description-paragraph {
+            font-size: 0.9em;
+            font-family: "Instrument Sans", sans-serif;
+            color: #3A3A3A;
+            line-height: 1.6;
+            margin-bottom: 15px; /* Space below paragraph */
+            text-align: left; /* Align text to left */
+        }
+
+        /* --- Risk Bar Section --- */
+        .risk-bar-container {
+            margin-bottom: 3px;
+            position: relative; /* For "YOU ARE HERE" positioning */
+            padding-top: 40px; /* Space for "YOU ARE HERE" indicator */
+        }
+
+        .you-are-here {
+            position: absolute;
+            top: 0;
+            /* 'left' will be set by JavaScript */
+            transform: translateX(-50%); /* Center based on its own width */
+            text-align: center;
+            font-size: 0.85em;
+            color: #F75819; /* Orange color */
+            font-weight: bold;
+        }
+
+        .you-are-here::after {
+            content: "\25BC"; /* Downward pointing triangle/arrow */
+            display: block;
+            font-size: 1.2em;
+            line-height: 0.5;
+            color: #F75819;
+            margin-top: 5px;
+        }
+
+        .risk-bar-segments {
+            display: flex;
+            height: 50px; /* Height of the colored bar */
+            border-radius: 5px;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        .risk-segment {
+            flex: 1; /* Each segment takes equal width */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3a3a3a;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 0 10px; /* Internal padding for text */
+            box-sizing: border-box;
+            text-align: center; /* Ensure text is centered within its segment */
+        }
+
+        /* Segment specific colors */
+        .risk-segment.green { flex: 4;background-color: rgba(61, 160, 0, 0.5); }
+        .risk-segment.yellow { flex: 3;background-color: rgba(255, 184, 0, 0.5); }
+        .risk-segment.red { flex: 3;background-color: rgba(253, 9, 9, 0.5); }
+
+        .t-score-labels {
+            display: flex;
+            justify-content: space-between; /* Distribute labels (initially) */
+            margin-top: 5px; /* Space below the bar */
+            font-size: 0.8em;
+            color: #555;
+            position: relative; /* For precise positioning of numbers */
+            height: 20px; /* Give it a fixed height to prevent collapse */
+        }
+
+        /* Labels will be positioned by JavaScript */
+        .t-score-labels span {
+            font-weight: 600;
+            position: absolute;
+            transform: translateX(-50%); /* Center text under its point */
+            white-space: nowrap; /* Prevent numbers from wrapping */
+            top: 0; /* Align to the top of its relative container */
+        }
+
+        .label-0-3{
+            color: #F75819;
+        }
+
+        /* --- Explanations Section --- */
+        .explanations-container {
+            display: flex;
+            gap: 30px; /* Space between the two explanation columns */
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            text-align: left; /* Align text to left */
+        }
+
+        .explanation-column {
+            flex: 1; /* Allow columns to grow and shrink */
+            box-sizing: border-box;
+        }
+
+        .explanation-item {
+            margin-bottom: 10px; /* Space between explanation items */
+        }
+
+        .explanation-item .title {
+            font-family: "Instrument Sans", sans-serif;
+            font-size: 0.95em;
+            font-weight: bold;
+            color: #3A3A3A;
+            margin-bottom: 5px; /* Space between title and description */
+        }
+
+        .explanation-item .description {
+            font-family: "Instrument Sans", sans-serif;
+            font-size: 0.8em;
+            color: #3A3A3A;
+            line-height: 1.5;
+        }
+
+                /* --- Data Tables Section (image_4773be.png) --- */
+        .data-table-container {
+            margin-bottom: 5px;
+            border: 1px solid #F75819;
+            border-radius: 8px;
+            padding-top: 5px;
+            overflow: hidden; /* For table border radius */
+        }
+        .data-table-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #3A3A3A;
+            text-align: left;
+        }
+        .data-table {
+            width: 100%;
+            height: 120px;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 3px 5px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.7em;
+            color: #3A3A3A;
+        }
+        .data-table th {
+            font-weight: 600;
+            color: #3A3A3A;
+            text-transform: uppercase;
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table-image {
+            width: 80px; /* Adjust as needed */
+            height: 80px;
+            object-fit: contain;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .table-row-flex {
+            display: flex;
+            align-items: center;
+        }
+        .table-data-wrapper {
+            flex-grow: 1;
+        }
+
+
+
+
+</style>
+
+<page size="A4" id="page1">
+    <div class="logo">
+        <img src="https://i.postimg.cc/1zwm6Xb4/VItal-Insights-Icon.png" alt="Logo">
+    </div>
+
+    <div class="page1_name">
+        Mr. Ranjith Kumar
+    </div>
+    <div class="page1_footer">
+        <img src="https://i.postimg.cc/1zwm6Xb4/VItal-Insights-Icon.png" alt="Logo">
+        <p>Vital Dexa</p>
+    </div>
+
+</page>
+
+<page size="A4" id="page2">
+    <div class="page2_header">
+        <p class="header_name">{{name}}</p>
+        <p class="header_age">Height: {{height}} cm | Weight: {{weight}} kgs | Age: {{age}} | Gender: {{gender}} | DOB: {{dob}}</p>
+    </div>
+    <div class="content">
+        <div class="page2_indicator">
+            <div class="summary-indicators">
+                <div class="progress-start-label"></div>
+                <div class="progress-line-wrapper">
+                    <div class="progress-dot start"></div>
+                    <div class="progress-dot bone-health"></div>
+                    <div class="progress-dot fat-distribution"></div>
+                    <div class="progress-dot asymmetry"></div>
+                    <div class="progress-dot total-risk"></div>
+                </div>
+                <div class="progress-labels-wrapper">
+                    <div class="progress-label progress-label-start">SUMMARY</div>
+                    <div class="progress-label">Bone Health</div>
+                    <div class="progress-label">Fat Distribution</div>
+                    <div class="progress-label">Asymmetry</div>
+                    <div class="progress-label">Total Risk</div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="body-composition-section">
+            <div class="section-header">
+                <span>YOUR BODY COMPOSITION</span>
+                <span class="date">2ND APRIL 2025</span>
+            </div>
+            <div class="composition-boxes">
+                <div class="composition-box">
+                    <div class="box-label">FAT MASS</div>
+                    <div class="box-value">{{fat_mass}}</div>
+                    <div class="box-operator-inside">+</div>
+                </div>
+                <div class="composition-box">
+                    <div class="box-label">LEAN MASS</div>
+                    <div class="box-value">{{lean_mass}}</div>
+                    <div class="box-operator-inside">+</div>
+                </div>
+                <div class="composition-box">
+                    <div class="box-label">BMC</div>
+                    <div class="box-value">{{bmc}}</div>
+                    <div class="box-operator-inside">=</div>
+                </div>
+                <div class="composition-box">
+                    <div class="box-label">TOTAL MASS</div>
+                    <div class="box-value">{{total_mass}}</div>
+                    </div>
+            </div>
+        </div>  
+        <div class="summary-section">
+            <div class="summary-blocks">
+                <div class="summary-block">
+                    <div class="summary-block-green">
+                        <div class="block-label">BODY FAT<br>  <span style="font-size: .9em;font-weight: normal;">(PERCENTAGE)</span></div>
+                        <div class="block-value">{{body_fat_percentage}}</div>
+                    </div>
+                    <a href="#" class="block-link">See page 3 for more</a>
+                </div>
+    
+                <div class="summary-block">
+                    <div class="summary-block-red">
+                        <div class="block-label">MUSCLE MASS<br>  <span style="font-size: .9em;font-weight: normal;">(ALMI)</span></div>
+                        <div class="block-value">{{muscle_mass}}</div>
+                    </div>
+                    <a href="#" class="block-link">See page 4 for more</a>
+                </div>
+    
+                <div class="summary-block">
+                    <div class="summary-block-yellow">
+                        <div class="block-label">BONE DENSITY<br>  <span style="font-size: .9em;font-weight: normal;">(T-SCORE)</span></div>
+                        <div class="block-value">{{bone_density}}</div>
+                    </div>
+                    <a href="#" class="block-link">See page 2 for more</a>
+                </div>
+            </div>
+    
+            <div class="summary-legend">
+                <div class="legend-item">
+                    <div class="legend-color-box green"></div>
+                    <div class="legend-text">In Range</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color-box yellow"></div>
+                    <div class="legend-text">Suboptimal</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-item">
+                        <div class="legend-color-box red"></div>
+                        <div class="legend-text">Needs Attention</div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div class="mass-zone-section">
+            <div class="mass-zone-header">YOU ARE IN THE...</div>
+            <div class="mass-zone-box">
+                <div class="zone-title">SOFT MASS ZONE</div>
+                <div class="zone-description">
+                    You have sufficient fat but low muscle: focusing on strength-building can shift your metabolic profile.
+                </div>
+            </div>
+        </div>  
+        <div class="you-are-section">
+            <div class="you-are-header">YOU ARE...</div>
+            <div class="status-blocks-container">
+                <div class="status-block red">
+                    <div class="block-title">UNDER MUSCLED</div>
+                    <div class="block-detail-line">ALMI: {{muscle_mass}} kg/m²</div>
+                    <div class="block-description">
+                        (Your ALMI is below 7.0 – an indicator of low skeletal muscle health and physical resilience.)
+                    </div>
+                </div>
+    
+                <div class="status-block green">
+                    <div class="block-title">ADEQUATELY NOURISHED</div>
+                    <div class="block-detail-line">Body Fat: {{body_fat_percentage}}%</div>
+                    <div class="block-description">
+                        (Your body fat is within the range of 14.0% – 31.8% – enough to support hormones and energy, without excess metabolic load.)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="suggestions-section">
+            <div class="suggestions-header">AND THESE ARE OUR SUGGESTIONS...</div>
+            <div class="suggestions-content">
+                <div class="suggestion-column nutrition">
+                    <div class="column-header">
+                        <i class="fas fa-utensils icon"></i><div class="title">NUTRITION</div>
+                    </div>
+                    <ul class="suggestion-list">
+                        <li>Increase protein intake (At least 1-1.5g of protein per kg of body weight) - Fish, Egg Whites, Beans, Nuts, Whey Protein.</li>
+                        <li>Caloric Maintenance or Slight Surplus - Ensure you're eating enough calories to support muscle growth. Fuel your body with a balanced diet of whole grains, fruits, vegetables, and lean protein to support training and recovery.</li>
+                    </ul>
+                </div>
+    
+                <div class="suggestion-column training">
+                    <div class="column-header">
+                        <i class="fas fa-dumbbell icon"></i> <div class="title">TRAINING</div>
+                    </div>
+                    <ul class="suggestion-list">
+                        <li>Do Strength Training - Increases muscle mass and metabolism making it easier to manage weight in long term</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+        
+</page>
+
+
+<page size="A4" id="page3">
+    <div class="page2_header">
+        <p class="header_name">{{name}}</p>
+        <p class="header_age">Height: {{height}} cm | Weight: {{weight}} kgs | Age: {{age}} | Gender: {{gender}} | DOB: {{dob}}</p>
+    </div>
+    <div class="content">
+        <div class="page2_indicator">
+            <div class="summary-indicators">
+                <div class="progress-start-label2"></div>
+                <div class="progress-line-wrapper2">
+                    <div class="progress-dot2 start"></div>
+                    <div class="progress-dot2 bone-health"></div>
+                    <div class="progress-dot2 fat-distribution"></div>
+                    <div class="progress-dot2 asymmetry"></div>
+                    <div class="progress-dot2 total-risk"></div>
+                </div>
+                <div class="progress-labels-wrapper2">
+                    <div class="progress-label2">SUMMARY</div>
+                    <div class="progress-label2 progress-label-start2">Bone Health</div>
+                    <div class="progress-label2">Fat Distribution</div>
+                    <div class="progress-label2">Asymmetry</div>
+                    <div class="progress-label2">Total Risk</div>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="bone-strength-section">
+            <div class="header-title-container">
+                <img src="bone.svg" alt="Bone" class="icon"> <div class="title-text">YOUR BONES ARE STRONG</div>
+            </div>
+    
+            <p class="description-paragraph">
+                The fracture risk is low, your whole body T-score of 0.4 means your bone mineral density at the lumbar
+                spine (L1-L4) is above average compared to the reference group of healthy young adults. In other words,
+                your bones are solid, well-mineralised, and structurally strong.
+            </p>
+    
+            <div class="risk-bar-container">
+                <div class="you-are-here" data-tscore="-0.3">YOU ARE HERE</div>
+                <div class="risk-bar-segments">
+                    <div class="risk-segment green">NORMAL<br>LOW FRACTURE RISK</div>
+                    <div class="risk-segment yellow">OSTEOPENIA<br>MILD FRACTURE RISK</div>
+                    <div class="risk-segment red">OSTEOPOROSIS<br>HIGH FRACTURE RISK</div>
+                </div>
+                <div class="t-score-labels">
+                    <span class="label-1-0" data-tscore="1.0">1.0</span>
+                    <span class="label-0-3" data-tscore="-0.3">-0.3</span>
+                    <span class="label-minus-1-0" data-tscore="-1.0">-1.0</span>
+                    <span class="label-minus-2-5" data-tscore="-2.5">-2.5</span>
+            </div>
+    
+            <div class="explanations-container">
+                <div class="explanation-column">
+                    <div class="explanation-item">
+                        <div class="title">T-score</div>
+                        <div class="description">
+                            This compares your bone density to that of a healthy young adult (around age 30). It’s the main number doctors use to assess your bone strength.
+                        </div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="title">Z-score</div>
+                        <div class="description">
+                            This compares your bone density to other people of the same age, sex, and body size. It helps us understand if your bone health is typical for someone like you.
+                        </div>
+                    </div>
+                </div>
+                <div class="explanation-column">
+                    <div class="explanation-item">
+                        <div class="title">Osteopenia</div>
+                        <div class="description">
+                            This is your early warning zone. A T-score between -1.0 and -2.5 means your bones are starting to weaken. It’s not a diagnosis, but it’s a chance to take action before things get worse.
+                        </div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="title">Osteoporosis</div>
+                        <div class="description">
+                            A T-score below -2.5 means your bones are fragile and more prone to fractures. This needs attention, talk to a doctor about ways to strengthen and protect your bones.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-section">
+            <div class="data-table-title">AP-SPINE</div>
+            <div style="display: flex;">
+                <img src="https://i.postimg.cc/B63ByBzB/firstpage-Background.png" alt="Human Spine" style="width: 15%; height: 125px;padding-right: 30px;">
+                <div class="data-table-container" style="width: 75%;">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>REGION</th>
+                        <th>BMD(G/CM²)</th>
+                        <th>T SCORE</th>
+                        <th>Z SCORE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{bmdSections_apSpine_region_1}}</td>
+                        <td>{{bmdSections_apSpine_bmd_1}}</td>
+                        <td>{{bmdSections_apSpine_tScore_1}}</td>
+                        <td>{{bmdSections_apSpine_zScore_1}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{bmdSections_apSpine_region_2}}</td>
+                        <td>{{bmdSections_apSpine_bmd_2}}</td>
+                        <td>{{bmdSections_apSpine_tScore_2}}</td>
+                        <td>{{bmdSections_apSpine_zScore_2}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{bmdSections_apSpine_region_3}}</td>
+                        <td>{{bmdSections_apSpine_bmd_3}}</td>
+                        <td>{{bmdSections_apSpine_tScore_3}}</td>
+                        <td>{{bmdSections_apSpine_zScore_3}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{bmdSections_apSpine_region_4}}</td>
+                        <td>{{bmdSections_apSpine_bmd_4}}</td>
+                        <td>{{bmdSections_apSpine_tScore_4}}</td>
+                        <td>{{bmdSections_apSpine_zScore_4}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{bmdSections_apSpine_region_total}}</td>
+                        <td>{{bmdSections_apSpine_bmd_total}}</td>
+                        <td>{{bmdSections_apSpine_tScore_total}}</td>
+                        <td>{{bmdSections_apSpine_zScore_total}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="data-table-title">RIGHT FEMUR</div>
+            <div style="display: flex;">
+                <img src="https://i.postimg.cc/B63ByBzB/firstpage-Background.png" alt="Human Spine" style="width: 15%; height: 125px;padding-right: 30px;">
+                <div class="data-table-container" style="width: 75%;" >
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>REGION</th>
+                                <th>BMD(G/CM²)</th>
+                                <th>T SCORE</th>
+                                <th>Z SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{bmdSections_rightFemur_region_1}}</td>
+                                <td>{{bmdSections_rightFemur_bmd_1}}</td>
+                                <td>{{bmdSections_rightFemur_tScore_1}}</td>
+                                <td>{{bmdSections_rightFemur_zScore_1}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{bmdSections_rightFemur_region_total}}</td>
+                                <td>{{bmdSections_rightFemur_bmd_total}}</td>
+                                <td>{{bmdSections_rightFemur_tScore_total}}</td>
+                                <td>{{bmdSections_rightFemur_zScore_total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="data-table-title">LEFT FEMUR</div>
+            <div style="display: flex;">
+                <img src="https://i.postimg.cc/B63ByBzB/firstpage-Background.png" alt="Human Spine" style="width: 15%; height: 125px;padding-right: 30px;">
+                <div class="data-table-container" style="width: 75%;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>REGION</th>
+                                <th>BMD(G/CM²)</th>
+                                <th>T SCORE</th>
+                                <th>Z SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{bmdSections_leftFemur_region_1}}</td>
+                                <td>{{bmdSections_leftFemur_bmd_1}}</td>
+                                <td>{{bmdSections_leftFemur_tScore_1}}</td>
+                                <td>{{bmdSections_leftFemur_zScore_1}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{bmdSections_leftFemur_region_total}}</td>
+                                <td>{{bmdSections_leftFemur_bmd_total}}</td>
+                                <td>{{bmdSections_leftFemur_tScore_total}}</td>
+                                <td>{{bmdSections_leftFemur_zScore_total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+</page>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Define the full range of the slider bar
+        const rangeStart = 1.0;
+        const rangeEnd = -4.0; // UPDATED: The new end of the range is -4.0
+        const totalRangeLength = rangeStart - rangeEnd; // This will be 1.0 - (-4.0) = 5.0
+
+        /**
+         * Calculates the percentage position of a given T-score value on the slider.
+         * @param {number} tScore The T-score value to position.
+         * @returns {number} The percentage from the left (0-100).
+         */
+        function calculatePosition(tScore) {
+            // Clamp the T-score value to ensure it stays within the defined range
+            const clampedTScore = Math.max(Math.min(tScore, rangeStart), rangeEnd);
+            const distance = rangeStart - clampedTScore;
+            const percentage = (distance / totalRangeLength) * 100;
+            return percentage;
+        }
+
+        // Position the "YOU ARE HERE" indicator
+        const youAreHere = document.querySelector('.you-are-here');
+        if (youAreHere) {
+            const currentTScore = parseFloat(youAreHere.dataset.tscore); // Get T-score from data attribute
+            const position = calculatePosition(currentTScore);
+            youAreHere.style.left = position + '%';
+        }
+
+        // Position the T-score labels
+        const tScoreLabels = document.querySelectorAll('.t-score-labels span');
+        tScoreLabels.forEach(label => {
+            const tScoreValue = parseFloat(label.dataset.tscore); // Get T-score from data attribute
+            const position = calculatePosition(tScoreValue);
+            label.style.left = position + '%';
+
+            // Special handling for edge labels to align perfectly (translateX already handles centering for others)
+            if (tScoreValue === rangeStart) {
+                label.style.transform = 'translateX(0%)'; // Align left edge
+            } else if (tScoreValue === rangeEnd) {
+                label.style.transform = 'translateX(-100%)'; // Align right edge
+            } else {
+                label.style.transform = 'translateX(-50%)'; // Center for intermediate labels
+            }
+        });
+
+        // Note: The media query for small screens changes label positioning to static.
+        // If the screen resizes from large to small, the JS calculated 'left' might be
+        // overridden by the media query. If you need dynamic re-calculation on resize,
+        // you would add a window.addEventListener('resize', ...) that re-runs the positioning.
+        // However, the current CSS is often a good approach for simpler mobile layouts.
+    });
+</script>
+</body>

@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import DateRangePicker from "../common/DateRangePicker";
 import { usePatients } from "../../hooks/usePatients";
 
+// Status options based on our business logic
 const STATUS_OPTIONS = [
   { value: "", label: "All Statuses" },
-  { value: "scheduled", label: "Scheduled" },
   { value: "completed", label: "Completed" },
-  { value: "pending", label: "Pending" },
-  { value: "cancelled", label: "Cancelled" },
+  { value: "in_progress", label: "In Progress" },
+  { value: "not_started", label: "Not Started" },
 ];
 
 // Preset date options
 const DATE_PRESETS = [
   { key: "today", label: "Today" },
   { key: "yesterday", label: "Yesterday" },
-  { key: "last5days", label: "Last 5 Days" },
+  { key: "lastWeek", label: "Last Week" },
+  { key: "lastMonth", label: "Last Month" },
 ];
 
 const FilterPanel = () => {
@@ -24,6 +25,7 @@ const FilterPanel = () => {
     loadBranches,
     loadPatients,
     branches,
+    patients,
   } = usePatients();
   
   useEffect(() => {
@@ -31,10 +33,10 @@ const FilterPanel = () => {
     
     // Set default to last 5 days on initial load
     if (!filters.startDate && !filters.endDate) {
-      const today = new Date('2025-05-31'); // Using the provided current date
+      const today = new Date(); // Using the provided current date
       const startDate = new Date(today);
-      startDate.setDate(startDate.getDate() - 4); // 4 days ago + today = 5 days
-      
+      startDate.setDate(startDate.getDate() - 7); // 6 days ago + today = 7 days
+
       updateFilters({
         startDate: startDate,
         endDate: today
@@ -46,9 +48,20 @@ const FilterPanel = () => {
   const handleStartDateChange = (date) => updateFilters({ startDate: date });
   const handleEndDateChange = (date) => updateFilters({ endDate: date });
   const handleBranchChange = (e) => updateFilters({ branchId: e.target.value });
-  const handleStatusChange = (e) => updateFilters({ status: e.target.value });
+  
+  // Modified status change handler to work locally
+  const handleStatusChange = (e) => {
+    const selectedStatus = e.target.value;
+    updateFilters({ status: selectedStatus });
+  };
 
-  const handleApplyFilters = () => loadPatients();
+  const handleApplyFilters = () => {
+    // Only load patients if non-status filters have changed
+    if (filters.startDate || filters.endDate || filters.branchId) {
+      loadPatients();
+    }
+  };
+
   const handleResetFilters = () => {
     updateFilters({
       startDate: null,
@@ -60,7 +73,7 @@ const FilterPanel = () => {
 
   // Handle date preset selection
   const handleDatePreset = (preset) => {
-    const today = new Date('2025-05-31'); // Using the provided current date
+    const today = new Date();
     let startDate = null;
     let endDate = null;
     
@@ -74,10 +87,15 @@ const FilterPanel = () => {
         startDate.setDate(startDate.getDate() - 1);
         endDate = new Date(startDate);
         break;
-      case "last5days":
-        startDate = new Date(today);
-        startDate.setDate(startDate.getDate() - 4); // 4 days ago + today = 5 days
+      case "lastWeek":
         endDate = new Date(today);
+        startDate = new Date(today);
+        startDate.setDate(startDate.getDate() - 7);
+        break;
+      case "lastMonth":
+        endDate = new Date(today);
+        startDate = new Date(today);
+        startDate.setMonth(startDate.getMonth() - 1);
         break;
       default:
         break;
@@ -134,7 +152,7 @@ const FilterPanel = () => {
   const getPresetActive = () => {
     if (!filters.startDate || !filters.endDate) return null;
     
-    const today = new Date('2025-05-31'); // Using the provided current date
+    const today = new Date(); // Using the provided current date
     today.setHours(0, 0, 0, 0); // Normalize to start of day
     
     const startDate = new Date(filters.startDate);
@@ -155,11 +173,18 @@ const FilterPanel = () => {
       return "yesterday";
     }
     
-    // Check if last 5 days
-    const last5days = new Date(today);
-    last5days.setDate(last5days.getDate() - 4);
-    if (startDate.getTime() === last5days.getTime() && endDate.getTime() === today.getTime()) {
-      return "last5days";
+    // Check if last week
+    const lastWeek = new Date(today);
+    lastWeek.setDate(lastWeek.getDate() - 7);
+    if (startDate.getTime() === lastWeek.getTime() && endDate.getTime() === today.getTime()) {
+      return "lastWeek";
+    }
+
+    // Check if last month
+    const lastMonth = new Date(today);
+    lastMonth.setMonth(lastMonth.getMonth() - 1);
+    if (startDate.getTime() === lastMonth.getTime() && endDate.getTime() === today.getTime()) {
+      return "lastMonth";
     }
     
     return null;
@@ -169,25 +194,26 @@ const FilterPanel = () => {
 
   return (
     <div className="mb-6">
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-sm">
+          Total Patients: <span className="text-orange-600 font-semibold">{patients?.length || 0}</span>
+        </div>
+        <div className="flex gap-3">
+          {DATE_PRESETS.map((preset) => (
+            <button
+              key={preset.key}
+              type="button"
+              onClick={() => handleDatePreset(preset.key)}
+              className={`preset-btn ${activePreset === preset.key ? 'active' : ''}`}
+            >
+              {preset.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      
       {/* Add custom CSS for consistent styling */}
       <style>{customStyles}</style>
-      
-      {/* Date preset buttons */}
-      <div className="flex gap-3 mb-4">
-        <div className="text-sm text-gray-600 flex items-center">
-          Quick filters:
-        </div>
-        {DATE_PRESETS.map((preset) => (
-          <button
-            key={preset.key}
-            type="button"
-            onClick={() => handleDatePreset(preset.key)}
-            className={`preset-btn ${activePreset === preset.key ? 'active bg-gray-200 font-medium' : ''}`}
-          >
-            {preset.label}
-          </button>
-        ))}
-      </div>
       
       {/* Main filter container - using grid for perfect alignment */}
       <div className="grid grid-cols-12 gap-4 items-center">
@@ -218,7 +244,7 @@ const FilterPanel = () => {
           </select>
         </div>
         
-        {/* Status dropdown - span 3 columns */}
+        {/* Status dropdown with local filtering */}
         <div className="col-span-6 md:col-span-3">
           <select
             value={filters.status || ""}

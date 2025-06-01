@@ -21,6 +21,6 @@ export const reportService = {
         ...reportData
       }
     };
-    return api.put(`/admin/dexa-reports/${reportId}`, payload);
+    return api.post('/admin/dexa-reports', payload);
   }
 };

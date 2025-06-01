@@ -1,75 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../common/Card';
-import Button from '../common/Button';
-import { format } from 'date-fns';
+import PDFModal from '../common/PDFModal';
 
 const PatientCard = ({ patient }) => {
+  let bloodReport = null;
+  if (patient.report_urls) {
+    bloodReport = patient.report_urls.find(report => report.report_type === 'bloodReport');
+  }
+
   const navigate = useNavigate();
-  
-  const handleViewReport = () => {
-    navigate(`/report/${patient.id}`);
+  const [isPDFModalOpen, setPDFModalOpen] = useState(false);
+
+  const getOverallStatus = () => {
+    const dexaStatus = patient.dexaReport?.report_status;
+    const hasBloodReport = !!bloodReport?.report_url;
+    
+    if (dexaStatus === 'published' && hasBloodReport) {
+      return { text: 'Completed', class: 'bg-green-100 text-green-800' };
+    }
+    if (dexaStatus || hasBloodReport) {
+      return { text: 'In Progress', class: 'bg-yellow-50 text-yellow-800' };
+    }
+    return { text: 'Not Started', class: 'bg-gray-100 text-gray-700' };
   };
 
-  const getStatusBadge = (status) => {
-    const statusClasses = {
-      'completed': 'bg-green-100 text-green-800',
-      'pending': 'bg-yellow-100 text-yellow-800',
-      'not_started': 'bg-primary-100 text-primary-800'
-    };
-    
-    const statusLabels = {
-      'completed': 'Completed',
-      'pending': 'Pending',
-      'not_started': 'Not Started'
-    };
-    
-    const className = statusClasses[status] || statusClasses.not_started;
-    const label = statusLabels[status] || 'Not Started';
-    
-    return (
-      <span className={`px-2 py-1 rounded-full text-xs font-medium ${className}`}>
-        {label}
-      </span>
-    );
+  const getBloodButtonStyle = () => {
+    if (bloodReport?.report_url) {
+      return 'bg-green-100 hover:bg-green-200 text-green-800';
+    }
+    return 'bg-gray-50 hover:bg-gray-100 text-gray-600';
   };
 
-  const formatAppointmentDate = (dateString) => {
-    if (!dateString) return '';
-    try {
-      return format(new Date(dateString), "MMM d, yyyy h:mm a");
-    } catch (error) {
-      console.error("Error formatting date:", error);
-      return dateString;
+  const getDexaButtonStyle = (status) => {
+    switch (status) {
+      case 'published':
+        return 'bg-green-100 hover:bg-green-200 text-green-800';
+      case 'submitted':
+        return 'bg-yellow-50 hover:bg-yellow-100 text-yellow-800';
+      default:
+        return 'bg-gray-50 hover:bg-gray-100 text-gray-600';
     }
   };
 
+  const status = getOverallStatus();
+
   return (
-    <Card className="h-full flex flex-col border-t-4 border-primary-500">
-      <div className="flex justify-between items-start">
+    <Card className="border-t-[3px] border-primary-500 p-3">
+      <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="text-lg font-semibold">{patient.profile?.name || 'Unknown'}</h3>
-          <p className="text-gray-600 text-sm">ID: {patient.sukra_id || 'N/A'}</p>
+          <h3 className="font-medium">{patient.profile?.name || 'Unknown'}</h3>
+          <p className="text-sm text-gray-600">ID: {patient.sukra_id || 'N/A'}</p>
         </div>
-        {getStatusBadge(patient.report_status)}
+        <span className={`text-xs px-2 py-1 rounded-full ${status.class}`}>
+          {status.text}
+        </span>
       </div>
-      
-      <div className="mt-3 space-y-1 text-sm">
-        <p><span className="font-medium">Branch:</span> {patient.facility?.branch_name || 'Unknown'}</p>
-        <p><span className="font-medium">Appointment:</span> {formatAppointmentDate(patient.slot_start_time)}</p>
-        <p><span className="font-medium">Gender:</span> {patient.profile?.gender ? patient.profile.gender.charAt(0).toUpperCase() + patient.profile.gender.slice(1) : 'Unknown'}</p>
-        <p><span className="font-medium">Age:</span> {patient.profile?.age || 'Unknown'}</p>
+
+      <div className="text-sm space-y-0.5 mb-3">
+        <p>Branch: {patient.facility?.branch_name || 'Unknown'}</p>
+        <p>Appt: {patient.slot_start_time}</p>
+        <p>
+          Age: {patient.profile?.age || '-'}
+          <span className="ml-3">Sex: {patient.profile?.gender || '-'}</span>
+        </p>
       </div>
-      
-      <div className="mt-auto pt-4">
-        <Button 
-          onClick={handleViewReport}
-          variant={patient.report_status === 'completed' ? 'secondary' : 'primary'}
-          className="w-full"
+
+      <div className="grid grid-cols-2 gap-2">
+        <button
+          onClick={() => bloodReport?.report_url && setPDFModalOpen(true)}
+          className={`py-1.5 px-3 rounded text-sm font-medium ${getBloodButtonStyle()}`}
+          disabled={!bloodReport?.report_url}
         >
-          {patient.report_status === 'completed' ? 'View Report' : 'Add Report'}
-        </Button>
+          Blood Report
+        </button>
+        <button
+          onClick={() => navigate(`/report/${patient.id}`)}
+          className={`py-1.5 px-3 rounded text-sm font-medium ${getDexaButtonStyle(patient.dexaReport?.report_status)}`}
+        >
+          DEXA Report
+        </button>
       </div>
+
+      <PDFModal
+        isOpen={isPDFModalOpen}
+        onClose={() => setPDFModalOpen(false)}
+        pdfUrl={bloodReport?.report_url}
+      />
     </Card>
   );
 };

@@ -3,23 +3,26 @@ import React from 'react';
 const Button = ({ 
   children, 
   type = 'button', 
-  variant = 'primary', 
-  className = '',
+  className = '', 
   disabled = false,
   onClick,
-  ...rest 
+  variant = 'primary'
 }) => {
-  const baseClasses = 'btn';
-  const variantClasses = `btn-${variant}`;
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+  const baseStyles = "px-4 py-2 rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
   
+  const variants = {
+    primary: `bg-orange-500 hover:bg-orange-600 text-white 
+              disabled:bg-orange-300 disabled:cursor-not-allowed
+              focus:ring-orange-200`,
+    secondary: "bg-gray-100 hover:bg-gray-200 text-gray-700 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
+  };
+
   return (
     <button
       type={type}
-      className={`${baseClasses} ${variantClasses} ${disabledClasses} ${className}`}
+      className={`${baseStyles} ${variants[variant]} ${className}`}
       disabled={disabled}
       onClick={onClick}
-      {...rest}
     >
       {children}
     </button>

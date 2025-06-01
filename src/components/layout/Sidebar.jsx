@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <aside className="bg-gray-800 text-white w-64 min-h-screen p-4">
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-primary-400">Navigation</h2>
+        <h2 className="text-xl font-bold text-primary-400"></h2>
       </div>
       <nav>
         <ul className="space-y-2">
